@@ -1,0 +1,18 @@
+h1, h2,h3 
+{
+  background-color: lightblue;
+}
+ ul p /* using the model of Ancestor/Descendent
+selectors */
+{
+    background-color: yellow;
+}
+p>a /* using the model of Parent/Child selectors */
+{
+    background-color: orange;
+}
+.cityUSA /* using a class method */
+{
+    color:green;
+    font-size: 20px
+}
