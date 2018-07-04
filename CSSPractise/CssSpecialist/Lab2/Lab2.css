@@ -1,0 +1,35 @@
+h1.GoogleFont{
+    font-family:"Galada";
+    color:dodgerblue;
+    padding-top:10%;
+}
+ul.Style{
+    list-style: square;
+    
+}
+.MainBody{
+    background-image: url(content/sea.jpeg);
+    background-size: 100% 30%;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+#MyMenu .Submenu ul {
+    display: none;
+    position:fixed;
+}
+
+#MyMenu .Submenu:hover ul {
+    display: block;
+    position:fixed;
+    list-style: none;
+    color:lightcoral;
+    background-color: lightcyan;
+    padding-right:12px;
+    margin-top: 0px;
+}
+#MyMenu {
+     background-color: antiquewhite;
+}
+#MyMenu .Submenu:hover{
+    background-color: lightcyan;
+}
