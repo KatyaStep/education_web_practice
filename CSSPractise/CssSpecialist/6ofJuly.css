@@ -1,0 +1,19 @@
+.rotating{
+    width: 80px;
+	height: 80px;
+	background-color: red;
+    -webkit-animation: colorChange 5s linear infinite; 
+    text-align: center;
+}
+@-webkit-keyframes colorChange{
+	0% {background-color: red;-webkit-transform: rotate(0deg);}
+    17% {background-color: blue;-webkit-transform: rotate(60deg);}
+	34% {background-color:yellow;-webkit-transform: rotate(120deg);}
+	51% {background-color:green;-webkit-transform: rotate(180deg);}
+	68% {background-color:orange;-webkit-transform: rotate(240deg);}
+	85% {background-color:purple;-webkit-transform: rotate(300deg);}
+    100% {background-color:pink;-webkit-transform: rotate(360deg);}
+	}
+.rotating:hover{
+    -webkit-animation-play-state:paused;  
+    }
