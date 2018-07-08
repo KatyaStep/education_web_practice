@@ -1,0 +1,22 @@
+#s3{
+    display:block;
+}
+
+#p1{
+    display:inline;
+    background-color: yellow;
+}
+#p2{
+    display:inline;
+    background-color: lightblue;
+}
+#img1{
+    left: 200px;
+    top: 300px;
+    position: absolute;
+}
+#img2{
+    position: fixed;
+    top:500px;
+    z-index: -1;
+}
