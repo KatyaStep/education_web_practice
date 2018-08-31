@@ -10,9 +10,9 @@ function printReverse(numbers){
 printReverse([1,2,3,4])
 
 //Write a function which takes an array as an argument and returns true if all elements in the array are identical
-var first_item = numbers[0];
-var result = true;
 function isUniform(numbers){
+    var first_item = numbers[0];
+    var result = true;
     for (i =1 ; i!=numbers.length; i++){
             if (first_item != numbers[i]){
                 result = false;
