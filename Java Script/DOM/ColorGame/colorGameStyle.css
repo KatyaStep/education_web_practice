@@ -1,0 +1,46 @@
+h1{
+    color:white;
+    text-align: center;
+    font-weight: lighter;
+    /*background-color: cornflowerblue;*/
+}
+li{
+    display:inline;
+}
+#navigationPanel{
+    text-align: center;
+    font-weight: bold;
+    background-color: white; 
+}
+#modes{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+    
+}
+#resultOutput{
+    text-align: center;
+    color:black;
+    
+}
+#item2{
+    padding-left: 150px;
+    padding-right: 10px;
+}
+
+body{
+    background-color: black;
+}
+.square{
+  width:30%;
+  background-color: purple;
+  float:left;
+  padding-bottom:30%;
+  margin:1.66%;
+   
+}
+#container{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
