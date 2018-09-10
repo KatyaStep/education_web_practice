@@ -2,9 +2,12 @@ var square = document.querySelectorAll("#test");
 var messageDisplay = document.querySelector("#newMessage");
 var resetButton = document.querySelector("button");
 var easyBtn = document.getElementById("easy");
+var hardBtn = document.getElementById("hard");
 var colors;
 var pickedColor;
 var countsSquare = 6; 
+var squareForEasyMode = 3;
+var squareForHardMode = 6;
 
 //Game();
 
@@ -72,17 +75,27 @@ resetButton.addEventListener("click",function(){
 
 
 easyBtn.addEventListener("click", function(){
-    countsSquare = 3;
-    addNewClass(countsSquare);
+    removeClass(squareForEasyMode);
     Game();
 });
 
-function addNewClass(countsSquare){
-    var square = document.querySelectorAll("#test");
-    for (var i = 0; i<countsSquare; i++){
+hardBtn.addEventListener("click", function(){
+    addNewClass(squareForHardMode);
+    Game();
+})
+
+function addNewClass(squareForHardMode){
+    for (var i = 0; i<squareForHardMode; i++){
         square[i].classList.add("square");
         }
-    return countsSquare;
+    return squareForHardMode;
+}
+
+function removeClass(squareForEasyMode){
+    for (var i = 0; i<squareForEasyMode; i++){
+        square[i].classList.remove("square");
+        }
+    return squareForEasyMode;
 }
 
 
