@@ -43,4 +43,14 @@ body{
     max-width: 400px;
     margin: 0 auto;
 }
+.btnEasy{
+    background-color:lightblue;
+    font-weight: bold;
+}
+.btnHard{
+    background-color:lightblue;
+    font-weight: bold;
+}    
+    
+}
 
