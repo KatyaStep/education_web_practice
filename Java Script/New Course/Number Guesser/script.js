@@ -8,13 +8,12 @@ var submitBtn = document.querySelector("#submit-btn");
 
 submitBtn.addEventListener("click",getGuessNumber);
 
-
 function getGuessNumber (e){
     
-    if (guessNumber.value != setNumber){
+    if ((guessNumber.value != setNumber) && (guessNumber.value > 0)){
         if (tryCount != 1){
             tryCount = tryCount - 1;
-            message(guessNumber.value + " is not correct, you have " + tryCount + " guesses left");
+            message(guessNumber.value  + " is not correct, you have " + tryCount + " guesses left");
             errorStyle();
             setTimeout(clearMessage,2000);
 
@@ -26,10 +25,13 @@ function getGuessNumber (e){
             gameOverstyle();
         }
     }
-    else{
+    else if (Number(guessNumber.value) === setNumber){
         console.log("You are win!")
-        message("You are win! " + guessNumber.value + " is correct!");
+        message("You are win! " + guessNumber.value  + " is correct!");
         winnerStyle();
+    }
+    else {
+        showError();
     }
     e.preventDefault();  
 }
@@ -70,18 +72,43 @@ function winnerStyle (){
     document.querySelector(".result").style.color = "#00ff00";
     guessNumber.readOnly = true;
     submitBtn.value = "Play Again";
-    submitBtn.className = "play-again"
     reset();
 }
 
 function reset(){
     if (submitBtn.value = "Play Again"){
         submitBtn.removeEventListener("click",getGuessNumber);
-        submitBtn.addEventListener("click",function(){
+        submitBtn.addEventListener("click",function(e){
              var confirmation = confirm("Do you want to start play again?")
              if (confirmation == true) {
                 location.reload();     
              }
+             else {
+                 e.preventDefault();
+             }
          })
     }
+}
+
+function showError(error){
+     //Create div
+     const errorDiv = document.createElement('div');
+     //Create class
+     errorDiv.className = "alert alert-danger";
+     //Create text node
+     node = document.createTextNode("Please, check your number!");
+     //Append child
+     errorDiv.appendChild(node);
+     //Insert error before heading
+     const body = document.querySelector("#body");
+     const heading = document.querySelector("#header");
+     body.insertBefore(errorDiv,heading);
+ 
+     //Set timeout
+     setTimeout(clearError, 3000);
+
+ }
+
+ function clearError(){
+    document.querySelector(".alert").remove();
 }
