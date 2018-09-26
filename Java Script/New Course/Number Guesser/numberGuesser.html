@@ -6,15 +6,14 @@
     <title>Number Guessing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style>
-    </style>
 </head>
 <body id = "body">
-    <h1 id = "header"s>Number Guesser</h1>
+    <h1 id = "header" class="col-sm-5 ml-2">Number Guesser</h1>
+    <p class="ml-4"> Guess a number between <span id="min-number"></span> and <span id="max-number"></span></p>
      <form id = "form">
             <div class="form-group row">
-                <div class="col-sm-3">
-                    <input id="text-field" type="text" class="form-control" id="inputText" placeholder="Guess Number">
+                <div class="col-sm-2 ml-4">
+                    <input id="text-field" type="text" class="form-control" id="inputText" placeholder="Enter your guess...">
                 </div>
                 <input id = "submit-btn" class="btn btn-primary" type="submit" value="Submit">
             </div>

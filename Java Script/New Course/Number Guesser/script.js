@@ -1,19 +1,43 @@
-const setNumber = Math.floor(Math.random()*10)+1;
-console.log ("Guess number is ", setNumber);
-var tryCount = 3;
+//Values
+let min = 1,
+    max = 10,
+    guessLeft = 3;
+    winningNumber = randomNum(min,max);
 
-var guessNumber = document.querySelector("#text-field");
-var submitBtn = document.querySelector("#submit-btn");
+//UI Elements
+const  guessNumber = document.querySelector("#text-field"),
+       submitBtn = document.querySelector("#submit-btn"),
+       minNum = document.querySelector("#min-number"),
+       maxNum = document.querySelector('#max-number');
+
+// Set min and max numbers in tne text of the tasks
+
+minNum.textContent = min;
+maxNum.textContent = max;
+
+//get randomNum function
+function randomNum(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+//Guess number to console
+console.log ("Guess number is ", winningNumber);
 
 
+//Set event for submit button
 submitBtn.addEventListener("click",getGuessNumber);
 
+//GuessNumber function 
 function getGuessNumber (e){
-    
-    if ((guessNumber.value != setNumber) && (guessNumber.value > 0)){
-        if (tryCount != 1){
-            tryCount = tryCount - 1;
-            message(guessNumber.value  + " is not correct, you have " + tryCount + " guesses left");
+    let guess = parseInt(guessNumber.value);
+
+    if (isNaN(guess) || guess > max || guess < min){
+        showError();
+    }
+    else if (guess != winningNumber){
+        if (guessLeft != 1){
+            guessLeft -= 1;
+            message(`${guess} is not correct, you have  ${guessLeft} guesses left`, 'red');
             errorStyle();
             setTimeout(clearMessage,2000);
 
@@ -21,60 +45,31 @@ function getGuessNumber (e){
         }
         else {
             console.log("GameOver") 
-            message("Sorry, game over. Correct number was " + setNumber);
-            gameOverstyle();
+            message(`Sorry, game over. Correct number was  ${winningNumber}`, 'red');
+            gameOverStyle();
         }
     }
-    else if (Number(guessNumber.value) === setNumber){
-        console.log("You are win!")
-        message("You are win! " + guessNumber.value  + " is correct!");
-        winnerStyle();
-    }
     else {
-        showError();
+        console.log("You are win!")
+        message(`You are win! ${guess} is correct!`, 'green');
+        winnerStyle();
     }
     e.preventDefault();  
 }
 
 //Result Message
-function message (text){
+function message (text,color){
     var newE = document.createElement("div");
-    newE.className = "result"
+    newE.className = "result ml-4"
     var newContent = document.createTextNode (text);
     newE.appendChild (newContent);
     var currentdiv = document.querySelector("#myscript");
     document.body.insertBefore(newE,currentdiv);
-}
-//Clear message
-function clearMessage(){
-    document.querySelector(".result").remove();
-    guessNumber.removeAttribute("style");
+    newE.style.color = color;
 }
 
 
-//Style functions 
-
-function errorStyle(){
-    guessNumber.style.border = '#ff0000 solid medium';
-    document.querySelector(".result").style.color = "#ff0000";
-}
-
-function gameOverstyle(){
-    guessNumber.style.border = '#ff0000 solid medium';
-    document.querySelector(".result").style.color = "#ff0000";
-    guessNumber.readOnly = true;
-    submitBtn.value = "Play Again";
-    reset();
-}
-
-function winnerStyle (){
-    guessNumber.style.border = "#00ff00 solid medium";
-    document.querySelector(".result").style.color = "#00ff00";
-    guessNumber.readOnly = true;
-    submitBtn.value = "Play Again";
-    reset();
-}
-
+// Reset function
 function reset(){
     if (submitBtn.value = "Play Again"){
         submitBtn.removeEventListener("click",getGuessNumber);
@@ -90,13 +85,14 @@ function reset(){
     }
 }
 
+//Function showError
 function showError(error){
      //Create div
      const errorDiv = document.createElement('div');
      //Create class
      errorDiv.className = "alert alert-danger";
      //Create text node
-     node = document.createTextNode("Please, check your number!");
+     node = document.createTextNode("Please, check your number");
      //Append child
      errorDiv.appendChild(node);
      //Insert error before heading
@@ -105,10 +101,38 @@ function showError(error){
      body.insertBefore(errorDiv,heading);
  
      //Set timeout
-     setTimeout(clearError, 3000);
+     setTimeout(clearError, 2000);
 
  }
 
+//Clear message
+function clearMessage(){
+    document.querySelector(".result").remove();
+    guessNumber.removeAttribute("style");
+}
+
+ //Function ClearError
  function clearError(){
     document.querySelector(".alert").remove();
+}
+
+
+//Style functions for error, gameover and win modes
+
+function errorStyle(){
+    guessNumber.style.border = 'red solid medium';
+}
+
+function gameOverStyle(){
+    guessNumber.style.border = 'red solid medium';
+    guessNumber.readOnly = true;
+    submitBtn.value = "Play Again";
+    reset();
+}
+
+function winnerStyle (){
+    guessNumber.style.border = "green solid medium";
+    guessNumber.readOnly = true;
+    submitBtn.value = "Play Again";
+    reset();
 }
