@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Book List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+</head>
+<style>
+    h1{
+        text-align: center;
+    }
+    .error, .success{
+        color: white;
+        padding:5px;
+        margin: 5px, 0, 15px,0;
+    }
+    .error{
+        background-color: #ff0000;
+    }
+    .success{
+        background-color: #00ff00;
+    }
+</style>
+<body id="body">
+    <div class ="container">
+        <h1>Add Book</h1>
+        <form id="book-form">
+            <div class = "row">
+                    <div>
+                        <label>Title Book</label>
+                        <input class="u-full-width"   placeholder="Type Title Book" id="title-book">
+                    </div>
+                    <div>
+                        <label>Author</label>
+                        <input class="u-full-width"  placeholder="Type Author" id="author">
+                    </div>
+                    <div>
+                        <label>ISBN#</label>
+                        <input class="u-full-width" placeholder="Type ISBN" id="isbn">
+                    </div>
+                    <div>
+                        <input type="submit"  id="submit-btn" value="Submit">
+                    </div>
+            </div>
+        </form>
+        <table class="u-full-width">
+                <thead>
+                    <hr>
+                    <tr>
+                        <th id = "table-title">Title</th>
+                        <th id="table-author">Author</th>
+                        <th id="table-isbn">ISBN</th>
+                    </tr>
+                </thead>
+                <tbody id="book-list"></tbody>
+        </table>
+    </div>
+   
+    <script src="script.js"></script>
+</body>
+</html>
