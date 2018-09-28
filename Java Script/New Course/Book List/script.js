@@ -43,13 +43,7 @@ class Book {
 
 class UI{
 
-    // Get Variables 
-    getVariables() {
-        const title =  document.querySelector("#title-book").value,
-        author = document.querySelector("#author").value,
-        isbn = document.querySelector('#isbn').value;
-        return title,author,isbn;
-    };
+    // Get Variables
 
     // addBookList method
     addBook(book){
