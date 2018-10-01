@@ -1,37 +1,29 @@
 // Submit button add event listener
 document.querySelector("#book-form").addEventListener("submit",function(e){
-    // Get form values
-    const title =  document.querySelector("#title-book").value,
-        author = document.querySelector("#author").value,
-        isbn = document.querySelector('#isbn').value;
-
-    // Instantiate book
-    const book = new Book();
-
     // Instantiate UI
     const ui = new UI();
+    // Get variables from ui methods
+    const title = ui.getTitle();
+    const author = ui.getAuthor();
+    const isbn = ui.getIsbn();
 
-    // Validate 
-    if (title ===''|| author === '' || isbn === ''){
-        ui.showAlert('Please, fill all fields', 'error')
-    }
-    else{
+    // Instantiate book
+    const book = new Book(title,author,isbn);
+
+    // If validate is true 
+    if (ui.validate()){
         ui.addBook(book);
         ui.showAlert('Book was added', 'success');
         ui.clearFields();
     }
     e.preventDefault();
 });
-
-
 //Delete Book event listener
 document.querySelector("#book-list").addEventListener("click", function(e){
     const ui = new UI();
     ui.deleteBook(e.target);
-    ui.showAlert('Book was deleted','error');
+    ui.showAlert('Book was deleted','success');
 });
-
-
 //  Book data structure  
 class Book {
     constructor(title, author, isbn){
@@ -43,7 +35,31 @@ class Book {
 
 class UI{
 
-    // Get Variables
+    // Get Title
+    getTitle(){
+        return document.querySelector("#title-book").value;
+    }
+    //Get Author
+    getAuthor(){
+        return document.querySelector("#author").value;
+    }
+    // Get ISBN
+    getIsbn(){
+        return document.querySelector('#isbn').value;
+    }
+    //Validate 
+    validate(){
+        const uiTitle = this.getTitle();
+        const uiAuthor = this.getAuthor();
+        const uiIsbn = this.getIsbn();
+        if (uiTitle ===''|| uiAuthor === '' || uiIsbn === ''){
+            this.showAlert('Please, fill all fields', 'error');
+        }
+        else{
+            return true;
+        }
+
+    }
 
     // addBookList method
     addBook(book){
@@ -80,7 +96,6 @@ class UI{
             document.querySelector('.alert').remove();
         },3000);
     }
-    
     //Clear fields
     clearFields(){
         document.querySelector("#title-book").value = '';
