@@ -1,0 +1,50 @@
+body{
+    background-image: linear-gradient(to right,RoyalBlue,CornflowerBlue, DarkTurquoise, Aquamarine,PaleTurquoise, LightGoldenrodYellow,LemonChiffon	 );
+}
+
+
+.container{
+    width: 300px;
+    height:100%;
+    margin: 0 auto;
+    margin-top: 70px;
+    background-image: repeating-linear-gradient(
+    180deg, #ccc, #ccc 30px, #dbdbdb 30px, #dbdbdb 60px);
+}
+h1{
+    color: white;
+    text-align: left;
+    padding-left: 5px;
+    font-family: 'Domine', serif;
+}
+
+.header{
+    width:300px;
+    background-color: Navy;
+}
+i{
+    float: right;
+    font-size: 32px;
+    padding-right: 15px;
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+li{
+    list-style: none;
+    height: 30px;
+    font-size:20px;
+    font-family: 'Waiting for the Sunrise', cursive;
+    padding: 1px 1px 2px 2px;
+}
+ul{
+    padding-left: 5px;
+}
+.fa-trash-alt {
+    position: relative;
+    top:5px;
+    color:red;
+    float:left;
+}
+
