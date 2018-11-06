@@ -1,50 +1,79 @@
 body{
-    background-image: linear-gradient(to right,RoyalBlue,CornflowerBlue, DarkTurquoise, Aquamarine,PaleTurquoise, LightGoldenrodYellow,LemonChiffon	 );
+    background: #b2fefa; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #b2fefa, #0ed2f7); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b2fefa, #0ed2f7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
 .container{
     width: 300px;
-    height:100%;
-    margin: 0 auto;
-    margin-top: 70px;
-    background-image: repeating-linear-gradient(
-    180deg, #ccc, #ccc 30px, #dbdbdb 30px, #dbdbdb 60px);
+    margin: 100px auto;
+    background: #f7f7f7;
+}
+.completed{
+    color: grey;
+    text-decoration: line-through;
 }
 h1{
     color: white;
+    background: #2980b9;
     text-align: left;
-    padding-left: 5px;
+    margin: 0;
+    padding: 10px 20px;
     font-family: 'Domine', serif;
+    text-transform: uppercase;
+    font-size: 24px;
 }
 
-.header{
-    width:300px;
-    background-color: Navy;
-}
-i{
+.fa-plus {
     float: right;
-    font-size: 32px;
-    padding-right: 15px;
-}
-a{
     text-decoration: none;
     color:white;
 }
-li{
-    list-style: none;
-    height: 30px;
-    font-size:20px;
-    font-family: 'Waiting for the Sunrise', cursive;
-    padding: 1px 1px 2px 2px;
+input{
+    font-size: 18px;
+    color: #2980b9;
+    width: 100%;
+    padding: 13px 13px 13px 20px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+    border:none;
+
+}
+input:focus {
+    background: #fff;
+
 }
 ul{
-    padding-left: 5px;
+    padding: 0;
+    margin:0;
 }
-.fa-trash-alt {
-    position: relative;
-    top:5px;
+li{
+    list-style: none;
+    background: #fff;
+    height: 40px;
+    line-height: 40px;
+    font-size:20px;
+    font-family: 'Waiting for the Sunrise', cursive;
+    padding-left: 10px;
+}
+li:nth-child(2n){
+    background: #f7f7f7;
+}
+
+.fas.fa-trash-alt.fa-sm{
+    display:none;
+    margin-right: 10px; 
+    padding-top:5px;
     color:red;
     float:left;
 }
 
+.trash-can{
+    display: inline !important;
+}
+
+.completed{
+    color: grey;
+    text-decoration: line-through;
+}
